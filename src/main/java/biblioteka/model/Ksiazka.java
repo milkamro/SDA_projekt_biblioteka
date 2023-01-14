@@ -1,10 +1,9 @@
 package biblioteka.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.Set;
 
 @Data
 @Entity
@@ -23,7 +22,9 @@ public class Ksiazka {
     private String isbn;
     private int rok_wydania;
 
-
-
+    @OneToMany(mappedBy = "ksiazka")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Set<Wypozyczenie> wypozyczenia;
 
 }

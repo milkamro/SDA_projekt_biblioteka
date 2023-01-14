@@ -1,13 +1,9 @@
 package biblioteka.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.Set;
 
 @Data
 @Entity
@@ -21,5 +17,10 @@ public class Uzytkownik {
     private String imie;
     private String nazwisko;
     private String numerKarty;
+
+    @OneToMany(mappedBy = "uzytkownik")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Set<Wypozyczenie> wypozyczenia;
 
 }

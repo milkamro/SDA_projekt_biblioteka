@@ -18,22 +18,20 @@ public class Wypozyczenie {
 
     @CreationTimestamp
     private LocalDate dataWypozyczenia;
+
     private LocalDate dataKoncaWypozyczenia;
 
-//    // Część relacji Samochod-Wypozyczenie
-//    @ManyToOne
-//    @EqualsAndHashCode.Exclude
-//    private Samochod samochodX;
-//
-//    // Część relacji Klient-Wypozyczenie
-//    @ManyToOne
-//    @EqualsAndHashCode.Exclude
-//    private Klient klientY;
-//
-//    // Część relacji Zwrot-Wypozyczenie
-//    @OneToOne(mappedBy = "wypozyczenieZ")
-//    @EqualsAndHashCode.Exclude
-//    private Zwrot zwrot;
-//}
+    @ManyToOne
+    @EqualsAndHashCode.Exclude
+    private Ksiazka ksiazka;
+
+    @ManyToOne
+    @EqualsAndHashCode.Exclude
+    private Uzytkownik uzytkownik;
+
+    @OneToOne
+    @EqualsAndHashCode.Exclude
+    private Zwrot zwrot;
+
 
 }

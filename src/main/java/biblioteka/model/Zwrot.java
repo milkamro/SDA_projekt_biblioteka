@@ -17,10 +17,8 @@ public class Zwrot {
 
     private LocalDateTime dataZwrotu;
 
-//    // Część relacji Zwrot-Wypozyczenie
-//    @OneToOne()
-//    @EqualsAndHashCode.Exclude
-//    private Wypozyczenie wypozyczenieZ;
-//}
+    @OneToOne()
+    @EqualsAndHashCode.Exclude
+    private Wypozyczenie wypozyczenie;
 
 }
