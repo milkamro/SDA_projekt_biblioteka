@@ -14,13 +14,16 @@ public class Ksiazka {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(columnDefinition = "VARCHAR(50) CHECK (nazwa IN ('OBYCZAJOWA', 'KRYMINAL'))")
-    @Enumerated
+    @Column(columnDefinition = "VARCHAR(50) CHECK (kategoria IN ('BIOGRAFIA', 'FANTASTYKA', 'KRYMINAŁ'," +
+            " 'OBYCZAJOWA', 'PIĘKNA', 'PORADNIK', 'TURYSTYKA'))")
+    @Enumerated(EnumType.STRING)
     private Kategoria kategoria;
-    private String autor;
+    private String autorImie;
+    private String autorNazwisko;
     private String tytul;
+    private int rokWydania;
     private String isbn;
-    private int rok_wydania;
+
 
     @OneToMany(mappedBy = "ksiazka")
     @ToString.Exclude
